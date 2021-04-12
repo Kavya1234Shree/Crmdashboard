@@ -1,0 +1,117 @@
+<div class="container register">
+  <div class="row">
+      <div class="col-md-3 register-left">
+          <!-- <img src="https://image.ibb.co/n7oTvU/logo_white.png" alt=""/> -->
+          <h3>Import New Product</h3>
+          <p></p>
+           <input type="submit" name="" [routerLink]="['/user']"  value="View Products"/><br/> 
+      </div>
+      <div class="col-md-9 register-right">
+         
+          <div class="tab-content" id="myTabContent">
+              <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                  <h3 class="register-heading">Import Product Details</h3>
+                  
+                    <form [formGroup]="addForm" (ngSubmit)="onSubmit()"  novalidate class="row register-form" >
+                      <div class="col-md-6"> 
+                        <label>PRODUCT NAME :</label>
+                          <div class="form-group">
+                            <select class="form-control" formControlName="txtProduct_id" name="txtProduct_id" >
+                             <option *ngFor="let account of suppliers" [value]="account.prod_id">{{account.prod_name}}</option>																						
+                           </select>
+                          </div>
+                          <div class="alert alert-danger" *ngIf="addForm.get('txtProduct_id').hasError('required') && addForm.get('txtProduct_id').touched">
+                            Please Enter The Product Name.
+                          </div>
+                          <br>
+                          <label>SUPPLIER NAME :</label>
+                          <div class="form-group">
+                            <select class="form-control" formControlName="txtSupplier_id" name="txtSupplier_id" >
+                              <option *ngFor="let account of supplier" [value]="account.sv_id" > {{account.sv_name}}</option>
+                             
+                             </select>
+                          </div>
+                          <div class="alert alert-danger" *ngIf="addForm.get('txtSupplier_id').hasError('required') && addForm.get('txtSupplier_id').touched">
+                            Please Enter supplier Name.
+                          </div>
+                          <br>
+                          <label>INVOICE NUMBER :</label>
+                          <div class="form-group">
+                              <input type="email" formControlName="txtInvoice_number" name="txtInvoice_number" class="form-control" placeholder="Enter Invoice Number *" value="" />
+                          </div>
+                          <div class="alert alert-danger" *ngIf="addForm.get('txtInvoice_number').hasError('required') && addForm.get('txtInvoice_number').touched">
+                            Please Enter Invoice Number.
+                          </div>
+                          <br>
+                          
+                          <label>QUALITY TYPE :</label>
+                        <div class="form-group">
+                          <input type="text" formControlName="txtQuality" name="txtQuality" class="form-control"  placeholder="Enter Quality *" value="" />
+                      </div>
+                      <div class="alert alert-danger" *ngIf="addForm.get('txtQuality').hasError('required') && addForm.get('txtQuality').touched">
+                        Please Enter Quality Type.
+                      </div>
+                      <br>
+                      <label>QUANTITY :</label>
+                          <div class="form-group">
+                              <input type="text" formControlName="txtQuantity" name="txtQuantity" class="form-control" placeholder="Enter Quantity *" value="" />
+                          </div>
+                          <div class="alert alert-danger" *ngIf="addForm.get('txtQuantity').hasError('required') && addForm.get('txtQuantity').touched">
+                            Please Enter Quantity.
+                          </div>
+                          <br>
+                          
+                        </div>
+                        <div class="col-md-6">
+                          <label>PRICE PER QUANTITY :</label>
+                          <div class="form-group">
+                              <input type="text" formControlName="txtPriceper_quantity" name="txtPriceper_quantity" class="form-control" placeholder="Enter Price per quantity" value="" />
+                          </div>
+                          <div class="alert alert-danger" *ngIf="addForm.get('txtPriceper_quantity').hasError('required') && addForm.get('txtPriceper_quantity').touched">
+                            Please Enter Price per quantity.
+                          </div>
+                          <br>
+                        
+                          <label>TOTAL COST :</label>
+                            <div class="form-group">
+                              <input type="text" formControlName="txtTotalCost" name="txtTotalCost" class="form-control" (keyup)="GrossTotal($event)" placeholder="Enter Total cost *" value="" />
+                          </div>
+                          <div class="alert alert-danger" *ngIf="addForm.get('txtTotalCost').hasError('required') && addForm.get('txtTotalCost').touched">
+                            Please Enter Total cost.
+                          </div>
+                          <br>
+                          <label>EXTRA CHARGES :</label>
+                          <div class="form-group">
+                              <input type="text" formControlName="txtExtraCharges" name="txtExtraCharges" class="form-control" (keyup)="GrossTotal($event)" placeholder="Enter extra Charges *" value="" />
+                          </div>
+                          <div class="alert alert-danger" *ngIf="addForm.get('txtExtraCharges').hasError('required') && addForm.get('txtExtraCharges').touched">
+                            Please Enter Extra Charges.
+                          </div>
+                          <br>
+                          <label>GROSS TOTAL:</label>
+                          <div class="form-group">
+                            <input type="text" formControlName="txtGrossTotal" name="txtGrossTotal" class="form-control"  placeholder="Enter Gross Total *" value="" />
+                        </div>
+                        <div class="alert alert-danger" *ngIf="addForm.get('txtGrossTotal').hasError('required') && addForm.get('txtGrossTotal').touched">
+                          Please Enter Gross Total.
+                        </div>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+            
+                          <button type="submit" class="btn btn-success">Submit</button> 
+                  </div>
+                        </form>
+                 
+                      
+                    
+                  </div>
+              </div>
+              
+               
+              </div>
+          </div>
+   </div>

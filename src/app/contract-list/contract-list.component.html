@@ -1,0 +1,59 @@
+<button class="btn btn-info" style="margin-top:20px; margin-left: 1000px;margin-bottom: 10px;" [routerLink]="['/contract']" > +Create New Contract</button><br>
+<div style="margin-top:1px; margin-left: 1000px;margin-bottom: 1px;" >
+  <button (click)="download()" class="btn btn-success">Export To Excel</button> 
+ </div>
+<input  type="text" id="myInput" style="margin-left:500px;" placeholder="Search here.. " [(ngModel)]="term" title="Type in a name"><br>
+<div class="container"
+fxLayout
+fxLayout.xs="column"
+fxLayoutAlign="center"
+fxLayoutGap="10px"
+fxLayoutGap.xs="0" style="background-color: white;">
+
+<div class="container">
+       
+<table id="customers">
+  <col width="130">
+<thead>
+ <tr>
+   <th>SL.NO</th>
+   <th>CONTRACT ID</th>
+   <th>CONTRACT DATE</th>
+   <th>CONTACT REMARKS</th>
+   <th>CONTRACTOR NAME</th>
+   <th>COMPANY NAME</th> 
+   <th>MOBILE</th>
+   <!-- <th>STATUS</th> -->
+   <th  >Action</th>
+   <!-- <th>Action</th> -->
+</thead>
+    <tr *ngFor="let driver of con | paginate: { id:'listing_pagination',itemsPerPage: 15,currentPage: page,totalItems: totalRec } |filter:term; let i = index;">
+      <td >{{(page-1)*15+i+1}}</td>
+      <td >{{driver.C_id}}</td>
+      <td >{{driver.C_date}}</td>
+      <td >{{driver.C_remarks}}</td>
+      <td >{{driver.Contr_fname}}</td>
+      <td >{{driver.Contr_org}}</td>
+      <td >{{driver.Contr_phone}}</td>
+      <!-- <td>{{driver.C_status}}</td> -->
+     
+      
+     
+      <!-- <td>{{driver.bank_name}}</td>
+      <td>{{driver.customer_name}}</td>
+      <td *ngIf="isAdmin">{{driver.customer_phone}}</td>
+      <td>{{driver.comments}}</td> -->
+      <td *ngIf="driver.C_status === '1' ">
+        <button class="btn" style="background-color:rgb(137, 137, 241); color:white;" [routerLink]="['/list-contract']">Recieve</button>
+     </td>
+       <td *ngIf="driver.C_status === '2'">
+        <button class="btn" style="background-color:rgb(137, 137, 241); color:white;" [routerLink]="['/statusup']">COMPLETE</button>
+     </td> 
+     </tr>
+  </table>
+   <div>
+    <pagination-controls  id="listing_pagination" maxSize="5" directionLinks="true" (pageChange)="page = $event"></pagination-controls>
+  </div> 
+  </div>
+  </div>
+

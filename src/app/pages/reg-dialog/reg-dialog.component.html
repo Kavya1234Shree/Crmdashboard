@@ -1,0 +1,169 @@
+<div class="container register">
+    <div class="row">
+        <div class="col-md-3 register-left">
+            <!-- <img src="https://image.ibb.co/n7oTvU/logo_white.png" alt=""/> -->
+            <h3>Update Employees</h3>
+            <p></p>
+            <button class="btn btn-info" (click)="closeModal()">Go Back</button> 
+        </div>
+        <div class="col-md-9 register-right">
+           
+            <div class="tab-content" id="myTabContent">
+                <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                    <h3 class="register-heading">Update Employee Details</h3>
+                    
+                      <form [formGroup]="addForm" (ngSubmit)="onSubmit()"  novalidate class="row register-form" >
+                        <div class="col-md-6"> 
+                          <label>FULL NAME :</label>
+                            <div class="form-group">
+                                <input type="text" formControlName="txtEmplfull_name" [(ngModel)]="txtEmplfull_name" class="form-control" name="txtEmplfull_name"  placeholder="Full Name *"  />
+                            </div>
+                            <div class="alert alert-danger" *ngIf="addForm.get('txtEmplfull_name').hasError('required') && addForm.get('txtEmplfull_name').touched">
+                              Please Enter The Full Name.
+                            </div>
+                            <br>
+                            <label>Employee ID :</label>
+                            <div class="form-group">
+                                <input type="text" formControlName="txtEmployee_ID" [(ngModel)]="txtEmployee_ID" name="txtEmployee_ID" class="form-control" placeholder="Company Name *" value="" />
+                            </div>
+                            <div class="alert alert-danger" *ngIf="addForm.get('txtEmployee_ID').hasError('required') && addForm.get('txtEmployee_ID').touched">
+                              Please Enter Employee Id.
+                            </div>
+                            <br>
+                            <label>EMAIL :</label>
+                            <div class="form-group">
+                                <input type="email" formControlName="txtEmplemail" [(ngModel)]="txtEmplemail" name="txtEmplemail" class="form-control" placeholder="Email *" value="" />
+                            </div>
+                            <!-- <div class="alert alert-danger" *ngIf="addForm.get('txtEmplemail ').hasError('required') && addForm.get('txtEmplemail ').touched">
+                              Please Enter The Email.
+                            </div> -->
+                            <br>
+                           
+                            
+                    
+                            <label>Date of birth :</label>
+                          <div class="form-group">
+                            <input  type="date"  class="form-control"  formControlName="txtEmplDate_of_birth" [(ngModel)]="txtEmplDate_of_birth" name="txtEmplDate_of_birth" placeholder="dd/mm/yyyy *" value="" />
+                        </div>
+                        <!-- <div class="alert alert-danger" *ngIf="addForm.get('txtEmplDate_of_birth ').hasError('required') && addForm.get('txtEmplDate_of_birth ').touched">
+                          Please Enter Date of Birth.
+                        </div> -->
+                        <br>
+                        <label>CONTACT NUMBER :</label>
+                            <div class="form-group">
+                                <input type="text" formControlName="txtEmplcontact_number" [(ngModel)]="txtEmplcontact_number" name="txtEmplcontact_number" class="form-control" placeholder="Enter Contact Number *" value="" />
+                            </div>
+                            <div class="alert alert-danger" *ngIf="addForm.get('txtEmplcontact_number').hasError('required') && addForm.get('txtEmplcontact_number').touched">
+                              Please Enter Contact Number.
+                            </div>
+                            <br>
+                            <label>ALTERNATE CONTACT NUMBER :</label>
+                            <div class="form-group">
+                                <input type="text" formControlName="txtEmplAlternate_Number" [(ngModel)]="txtEmplAlternate_Number"  name="txtEmplAlternate_Number" class="form-control" placeholder="Enter Contact Number *" value="" />
+                            </div>
+                            <!-- <div class="alert alert-danger" *ngIf="addForm.get('txtEmplAlternate_Number').hasError('required') && addForm.get('txtEmplAlternate_Number').touched">
+                              Please Enter Alternate Contact Number.
+                            </div> -->
+                            <br>
+                          </div>
+                          <div class="col-md-6">
+                            
+                            <label>ADDRESS :</label>
+                              <div class="form-group">
+                                <input type="text" formControlName="txtEmpladdress" [(ngModel)]="txtEmpladdress" name="txtEmpladdress" class="form-control" placeholder="Enter Address *" value="" />
+                            </div>
+                            <div class="alert alert-danger" *ngIf="addForm.get('txtEmpladdress').hasError('required') && addForm.get('txtEmpladdress').touched">
+                              Please Enter The Address.
+                            </div>
+                            <br>
+                            <label>CITY :</label>
+                            <div class="form-group">
+                                <input type="text" formControlName="txtEmplCity" [(ngModel)]="txtEmplCity" name="txtEmplCity" class="form-control" placeholder="Enter City *" value="" />
+                            </div>
+                            <div class="alert alert-danger" *ngIf="addForm.get('txtEmplCity').hasError('required') && addForm.get('txtEmplCity').touched">
+                              Please Enter The City.
+                            </div>
+                            <br>
+                            <label>STATE :</label>
+                            <div class="form-group">
+                              <input type="text" formControlName="txtEmplState" [(ngModel)]="txtEmplState" name="txtEmplState" class="form-control" placeholder="Enter State *" value="" />
+                          </div>
+                          <div class="alert alert-danger" *ngIf="addForm.get('txtEmplState').hasError('required') && addForm.get('txtEmplState').touched">
+                            Please Enter The State.
+                          </div>
+                          <br>
+                          <label>COUNTRY:</label>
+                          <div class="form-group">
+                            <input type="text" formControlName="txtEmplCountry" [(ngModel)]="txtEmplCountry" name="txtEmplCountry" class="form-control" placeholder="Enter Country *" value="" />
+                        </div>
+                        <div class="alert alert-danger" *ngIf="addForm.get('txtEmplCountry').hasError('required') && addForm.get('txtEmplCountry').touched">
+                          Please Enter The Country.
+                        </div>
+                        <br>
+                        <label>POSTCODE :</label>
+                        <div class="form-group">
+                          <input type="text" formControlName="txtEmplPostcode" [(ngModel)]="txtEmplPostcode" name="txtEmplPostcode" class="form-control" placeholder="Enter Postcode *" value="" />
+                      </div>
+                      <div class="alert alert-danger" *ngIf="addForm.get('txtEmplPostcode').hasError('required') && addForm.get('txtEmplPostcode').touched">
+                        Please Enter The Postcode.
+                      </div>
+                      <br>
+                      <label>ADHAAR NUMBER :</label>
+                            <div class="form-group">
+                                <input type="text" formControlName="txtEmplAdhaar_number" [(ngModel)]="txtEmplAdhaar_number" name="txtEmplAdhaar_number" class="form-control" placeholder="Adhaar Number" value="" />
+                            </div>
+                            <!-- <div class="alert alert-danger" *ngIf="addForm.get('txtEmplAdhaar_number').hasError('required') && addForm.get('txtEmplAdhaar_number').touched">
+                              Please Enter Adhaar Number.
+                            </div> -->
+                            <br>
+                            
+                            <label>PAN NUMBER :</label>
+                            <div class="form-group">
+                                <input type="text" formControlName="txtEmplPAN_number" [(ngModel)]="txtEmplPAN_number"  name="txtEmplPAN_number" class="form-control" placeholder="Pan Card Number" value="" />
+                            </div>
+                            <!-- <div class="alert alert-danger" *ngIf="addForm.get('txtEmplPAN_number').hasError('required') && addForm.get('txtEmplPAN_number').touched">
+                              Please Enter PAN Number.
+                            </div> -->
+                            <br>
+                            <label>BLOOD GROUP :</label>
+                            <div class="form-group">
+                                <input type="text" formControlName="txtEmplBlood_group" [(ngModel)]="txtEmplBlood_group" name="txtEmplBlood_group" class="form-control" placeholder="Blood Group" value="" />
+                            </div>
+                            <!-- <div class="alert alert-danger" *ngIf="addForm.get('txtEmplBlood_group').hasError('required') && addForm.get('txtEmplBlood_group').touched">
+                              Please Enter Blood Group.
+                            </div> -->
+                            <br>
+                            <label>USER TYPE :</label>
+                            <div class="form-group">
+                             <select class="form-control" formControlName="txtuser_type" [(ngModel)]="txtuser_type" name="txtuser_type" id="sel1">
+                              <option>Employee</option>
+                              <option>Manager</option>
+                              <option>Sales Agent</option>
+                             </select>
+                            </div>
+                            <div class="alert alert-danger" *ngIf="addForm.get('txtuser_type').hasError('required') && addForm.get('txtuser_type').touched">
+                              Please Enter User Type.
+                            </div>
+                            <br>
+                            <label>User Id :</label>
+                        <div class="form-group">
+                          <input type="text" formControlName="user_id" [(ngModel)]="user_id" name="user_id" class="form-control" placeholder="Enter Postcode *" value="" />
+                      </div>
+                      <div class="alert alert-danger" *ngIf="addForm.get('user_id').hasError('required') && addForm.get('user_id').touched">
+                        Please Enter The UserID.
+                      </div>
+                      <br>
+                          
+                            <button type="submit" class="btn btn-success">Update</button> 
+                    </div>
+                          </form>
+                   
+                        
+                      
+                    </div>
+                </div>
+                
+                 
+                </div>
+            </div>
+     </div>

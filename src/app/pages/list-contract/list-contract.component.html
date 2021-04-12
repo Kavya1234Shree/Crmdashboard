@@ -1,0 +1,196 @@
+<button class="btn btn-info" style="margin-top:20px; margin-left: 1000px;margin-bottom: 10px;" [routerLink]="['/contract-list']" >List Contract</button><br>
+<div class="container"
+fxLayout
+fxLayout.xs="column"
+fxLayoutAlign="center"
+fxLayoutGap="10px"
+fxLayoutGap.xs="0" style="background-color: white;">
+
+<div class="container">
+       
+<table id="customers">
+  <col width="130">
+<thead>
+ <tr>
+   <th>SL.NO</th>
+   <th>Contract</th>
+   <th>Contract Products</th>
+   <th>Contract Remarks</th>
+   <th>Expexted O/p</th>
+   <th>Actual O/p</th> 
+   <th>Full Name</th>
+   <th>Company</th>
+   <th>Contract</th>
+   
+    <!-- <th>Action</th>  -->
+   
+</thead>
+    <tr *ngFor="let driver of supplier | paginate: { id:'listing_pagination',itemsPerPage: 15,currentPage: page,totalItems: totalRec } |filter:term; let i = index;">
+      <td >{{(page-1)*15+i+1}}</td>
+      <td >{{driver.sv_gst_no}}</td>
+      <td >{{driver.sv_name}}</td>
+      <td >{{driver.sv_organisation}}</td>
+      <td >{{driver.sv_address}}</td>
+      <td >{{driver.sv_city}}</td>
+      <td >{{driver.sv_state}}</td>
+      <td >{{driver.sv_country}}</td>
+      <td >{{driver.sv_phone}}</td>
+      
+      
+     
+      <!-- <td>{{driver.bank_name}}</td>
+      <td>{{driver.customer_name}}</td>
+      <td *ngIf="isAdmin">{{driver.customer_phone}}</td>
+      <td>{{driver.comments}}</td> -->
+       <!-- <td>
+        <button class="btn " style="background-color:rgb(137, 137, 241); color:white;" (click)="openModal(driver.sv_id)">EDIT</button>
+     </td>  -->
+     </tr>
+  </table>
+   <div>
+    <pagination-controls  id="listing_pagination" maxSize="5" directionLinks="true" (pageChange)="page = $event"></pagination-controls>
+  </div> 
+  </div>
+  </div>
+  <br>
+  <div class="container"
+fxLayout
+fxLayout.xs="column"
+fxLayoutAlign="center"
+fxLayoutGap="10px"
+fxLayoutGap.xs="0" style="background-color: white;">
+
+<div class="container">
+       
+<table id="customers">
+  <col width="130">
+<thead>
+ <tr>
+   <th>SL.NO</th>
+   <th>Date</th>
+   <th>Contract Remarks</th>
+   <th>Product type</th>
+   <th >Contract Quality</th>
+   <th>Actual O/p</th> 
+   <th>Contract status</th>
+   
+    <!-- <th>Action</th>  -->
+   
+</thead>
+    <tr *ngFor="let driver of supplier | paginate: { id:'listing_pagination',itemsPerPage: 15,currentPage: page,totalItems: totalRec } |filter:term; let i = index;">
+      <td >{{(page-1)*15+i+1}}</td>
+      <td >{{driver.sv_gst_no}}</td>
+      <td >{{driver.sv_name}}</td>
+      <td >{{driver.sv_organisation}}</td>
+      <td >{{driver.sv_address}}</td>
+      <td >{{driver.sv_city}}</td>
+      <td >{{driver.sv_state}}</td>
+      
+      
+     
+      <!-- <td>{{driver.bank_name}}</td>
+      <td>{{driver.customer_name}}</td>
+      <td *ngIf="isAdmin">{{driver.customer_phone}}</td>
+      <td>{{driver.comments}}</td> -->
+       <!-- <td>
+        <button class="btn " style="background-color:rgb(137, 137, 241); color:white;" (click)="openModal(driver.sv_id)">EDIT</button>
+     </td>  -->
+     </tr>
+  </table>
+   <div>
+    <pagination-controls  id="listing_pagination" maxSize="5" directionLinks="true" (pageChange)="page = $event"></pagination-controls>
+  </div> 
+  </div>
+  </div>
+
+  <div class="container register">
+  <div class="row">
+      <div class="col-md-3 register-left">
+          <!-- <img src="https://image.ibb.co/n7oTvU/logo_white.png" alt=""/> -->
+          <!-- <h3>Import New Product</h3>
+          <p></p>
+           <input type="submit" name="" [routerLink]="['/user']"  value="View Products"/><br/>  -->
+      </div>
+      <div class="col-md-9 register-right">
+         
+          <div class="tab-content" id="myTabContent">
+              <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                  <h3 class="register-heading"></h3>
+                  
+                    <form [formGroup]="addForm" (ngSubmit)="onSubmit()"  novalidate class="row register-form" >
+
+                        <div class="col-md-4"> 
+                            <label>ACTUAL OUTPUT :</label>
+                            <div class="form-group">
+                                <input type="email" formControlName="txtInvoice_number" name="txtInvoice_number" class="form-control" placeholder="Enter Invoice Number *" value="" />
+                            </div>
+                            <!-- <div class="alert alert-danger" *ngIf="addForm.get('txtInvoice_number').hasError('required') && addForm.get('txtInvoice_number').touched">
+                              Please Enter Invoice Number.
+                            </div> -->
+                          </div>
+                          <div class="col-md-4"> 
+                            <label>RETURN REMARKS :</label>
+                          <div class="form-group">
+                            <input type="text" formControlName="txtQuality" name="txtQuality" class="form-control"  placeholder="Enter Quality *" value="" />
+                        </div>
+                        <!-- <div class="alert alert-danger" *ngIf="addForm.get('txtQuality').hasError('required') && addForm.get('txtQuality').touched">
+                          Please Enter Quality Type.
+                        </div> -->
+                      </div>
+                      <div class="col-md-4"> 
+                        <label>CONTRACT STATUS :</label>
+                          <div class="form-group">
+                            <select class="form-control" formControlName="txtProduct_id" name="txtProduct_id" >
+                             <option *ngFor="let account of suppliers" [value]="account.prod_id">{{account.prod_name}}</option>																						
+                           </select>
+                          </div>
+                          <!-- <div class="alert alert-danger" *ngIf="addForm.get('txtProduct_id').hasError('required') && addForm.get('txtProduct_id').touched">
+                            Please Enter The Product Name.
+                          </div> -->
+                        </div>
+                          <br>
+                          <div class="col-md-4"> 
+                            <label>PRODUCT QUALITY:</label>
+                                <div class="form-group">
+                                    <input type="text" formControlName="txtQuantity" name="txtQuantity" class="form-control" placeholder="Enter Quantity *" value="" />
+                                </div>
+                                <!-- <div class="alert alert-danger" *ngIf="addForm.get('txtQuantity').hasError('required') && addForm.get('txtQuantity').touched">
+                                  Please Enter Quantity.
+                                </div> -->
+                                <br>
+                                
+                              </div>
+                          <div class="col-md-4"> 
+                          <label>PRODUCT TYPE:</label>
+                          <div class="form-group">
+                            <select class="form-control" formControlName="txtSupplier_id" name="txtSupplier_id" >
+                              <option *ngFor="let account of supplier" [value]="account.sv_id" > {{account.sv_name}}</option>
+                             
+                             </select>
+                          </div>
+                          <!-- <div class="alert alert-danger" *ngIf="addForm.get('txtSupplier_id').hasError('required') && addForm.get('txtSupplier_id').touched">
+                            Please Enter supplier Name.
+                          </div> -->
+                        </div>
+                          <br>
+                         
+                          <br>
+                        
+                      <br>
+                     
+                        <div class="col-md-6" style="margin-left: 250px;">
+                         
+                          <button type="submit" class="btn btn-success">Submit</button> 
+                  </div>
+                        </form>
+                 
+                      
+                    
+                  </div>
+              </div>
+              
+               
+              </div>
+          </div>
+   </div>
+

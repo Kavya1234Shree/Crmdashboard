@@ -1,0 +1,60 @@
+<button class="btn btn-info" style="margin-top:10px; margin-left: 1000px;margin-bottom: 5px;" [routerLink]="['/upgrade']" > +Import New Product</button>
+<div style=" margin-left: 1000px;margin-bottom: 1px;" >
+  <button (click)="download()" class="btn btn-success">Export To Excel</button> 
+ </div>
+<input  type="text" id="myInput" style="margin-left:500px;" placeholder="Search here.. " [(ngModel)]="term" title="Type in a name"><br>
+<div class="container"
+fxLayout
+fxLayout.xs="column"
+fxLayoutAlign="center"
+fxLayoutGap="10px"
+fxLayoutGap.xs="0" style="background-color: white;">
+
+<div class="container">
+       
+<table id="customers">
+  <col width="130">
+<thead>
+ <tr>
+   <th>SL.NO</th>
+   <th>INVOICE NUMBER</th>
+   <th>DATE</th>
+   <th>PRODUCT</th>
+   <th >SUPPLIER</th>
+   <th>QUALITY</th> 
+   <th>QUANTITY</th>
+   <th>TOTAL</th>
+   <th>EXTRAS</th>
+   <th>GROSS</th>
+    <th>Action</th> 
+   
+</thead>
+    <tr *ngFor="let driver of supplierss | paginate: { id:'listing_pagination',itemsPerPage: 15,currentPage: page,totalItems: totalRec } |filter:term;let i = index;">
+      <td >{{(page-1)*15+i+1}}</td>
+      <td >{{driver.ip_invoice_number}}</td>
+      <td>{{driver.sv_name}}</td>
+      <td >{{driver.ip_created_date}}</td>
+      <td >{{driver.prod_name}}</td>
+      <td >{{driver.ip_product_quality}}</td>
+      <td >{{driver.ip_product_qty}}</td>
+      <td >{{driver.ip_net_total_cost}}</td>
+      <td >{{driver.ip_extra_cost}}</td>
+      <td >{{driver.ip_gross_total_cost}}</td>
+     
+      
+     
+      <!-- <td>{{driver.bank_name}}</td>
+      <td>{{driver.customer_name}}</td>
+      <td *ngIf="isAdmin">{{driver.customer_phone}}</td>
+      <td>{{driver.comments}}</td> -->
+       <td>
+        <button class="btn " style="background-color:rgb(137, 137, 241); color:white;" (click)="openModal(driver.ip_id)">EDIT</button>
+     </td> 
+     </tr>
+  </table>
+  <div>
+    <pagination-controls  id="listing_pagination" maxSize="5" directionLinks="true" (pageChange)="page = $event"></pagination-controls>
+  </div> 
+  </div>
+  </div>
+

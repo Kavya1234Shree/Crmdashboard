@@ -1,0 +1,111 @@
+<div class="container register">
+    <div class="row">
+        <div class="col-md-3 register-left">
+            <!-- <img src="https://image.ibb.co/n7oTvU/logo_white.png" alt=""/> -->
+            <h3>Import New Contract</h3>
+            <p></p>
+             <input type="submit" name="" [routerLink]="['/contract-list']"  value="List Contracts"/><br/> 
+        </div>
+        <div class="col-md-9 register-right">
+           
+            <div class="tab-content" id="myTabContent">
+                <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                    <h3 class="register-heading">Import Contract Details</h3>
+                    
+                      <form [formGroup]="addForm" (ngSubmit)="onSubmit()"  novalidate class="row register-form" >
+                        <div class="col-md-4"> 
+                          <label>CONTRACTOR :</label>
+                            <div class="form-group">
+                              <select class="form-control" formControlName="txtProduct_id" name="txtProduct_id" placeholder="Select Contractor Name" >
+                               <option *ngFor="let account of suppliers" [value]="account.prod_id">{{account.prod_name}}</option>																						
+                             </select>
+                            </div>
+                            <!-- <div class="alert alert-danger" *ngIf="addForm.get('txtProduct_id').hasError('required') && addForm.get('txtProduct_id').touched">
+                              Please Enter The Contractor Name.
+                            </div> -->
+                        </div>
+                            <br>
+                            <!-- <label>SUPPLIER NAME :</label>
+                            <div class="form-group">
+                              <select class="form-control" formControlName="txtSupplier_id" name="txtSupplier_id" >
+                                <option *ngFor="let account of supplier" [value]="account.sv_id" > {{account.sv_name}}</option>
+                               
+                               </select>
+                            </div> -->
+                            <!-- <div class="alert alert-danger" *ngIf="addForm.get('txtSupplier_id').hasError('required') && addForm.get('txtSupplier_id').touched">
+                              Please Enter supplier Name.
+                            </div> -->
+                            <div class="col-md-4"> 
+                            <label>EXPECTED OUTPUT :</label>
+                            <div class="form-group">
+                                <input type="text" formControlName="txtInvoice_number" name="txtInvoice_number" class="form-control" placeholder="Enter Invoice Number *" value="" />
+                            </div>
+                            <!-- <div class="alert alert-danger" *ngIf="addForm.get('txtInvoice_number').hasError('required') && addForm.get('txtInvoice_number').touched">
+                              Please Enter Expected Output.
+                            </div> -->
+                        </div>
+                            <br>
+
+                            <div class="col-md-4"> 
+                            <label>REMARK :</label>
+                          <div class="form-group">
+                            <input type="text" formControlName="txtQuality" name="txtQuality" class="form-control"  placeholder="Enter Quality *" value="" />
+                        </div>
+                        <!-- <div class="alert alert-danger" *ngIf="addForm.get('txtQuality').hasError('required') && addForm.get('txtQuality').touched">
+                          Please Enter remark.
+                        </div> -->
+                        <br>
+                         </div>
+                         
+  <div class="row justify-content-center">
+    <div class="col-12" formArrayName="addresses">
+        <button type="button" class="btn btn-primary mb-2" (click)="addAddress()">Add More Products</button>
+      <section class="container border mb-4 p-3" *ngFor="let address of addresses().controls; let i = index;" [formGroupName]="i">
+        <div class="row">
+          <div class="col-6">
+              <h4>Product {{i + 1}}</h4>
+          </div>
+          <div class="col-6 text-right">
+              <button type="button" class="btn btn-danger btn-sm" (click)="removeAddress(i)">Remove</button>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-4">
+              <div class="form-group">
+                  <label>Product</label>
+                  <select class="form-control"  formControlName="prod" name="prod" placeholder="Product">
+                    <option value="india">Select Product</option>
+                    <option value="usa">Beam</option>
+                    <option value="england">Dyes</option>
+                    <option value="england">Polyster yarn</option>
+                      <option value="england">saree</option>
+                      <option value="england">Yarn</option>
+                  </select>
+                </div>
+          </div>
+          <div class="col-6">
+              <div class="form-group">
+                  <label>Quantity</label>
+                  <input type="text" class="form-control" formControlName="qty" name="qty"  placeholder="Quantity"/>
+                </div>
+          </div>
+        </div>
+    </section>
+    </div>
+</div>
+<div class="col-md-8">
+                            
+  <button type="submit" class="btn btn-success">Submit</button> 
+                    </div>
+                          </form>
+                   
+                        
+                      
+                    </div>
+                </div>
+                
+                 
+                </div>
+            </div>
+     </div>
+  

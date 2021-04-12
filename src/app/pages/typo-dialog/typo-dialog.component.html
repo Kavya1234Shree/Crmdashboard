@@ -1,0 +1,115 @@
+<div class="container register">
+  <div class="row">
+      <div class="col-md-3 register-left">
+          <!-- <img src="https://image.ibb.co/n7oTvU/logo_white.png" alt=""/> -->
+          <h3>Create New Contractor</h3>
+          <p></p>
+          <button class="btn btn-info" (click)="closeModal()">Go Back</button> 
+      </div>
+      <div class="col-md-9 register-right">
+         
+          <div class="tab-content" id="myTabContent">
+              <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                  <h3 class="register-heading">Contactor Details</h3>
+                  
+                    <form [formGroup]="addForm" (ngSubmit)="onSubmit()"  novalidate class="row register-form" >
+                      <div class="col-md-6"> 
+                        <label>CONTRACTOR NAME :</label>
+                          <div class="form-group">
+                              <input type="text" formControlName="txtfull_name_contr"  class="form-control" name="txtfull_name_contr"  placeholder="Full Name *"  />
+                          </div>
+                          <div class="alert alert-danger" *ngIf="addForm.get('txtfull_name_contr').hasError('required') && addForm.get('txtfull_name_contr').touched">
+                            Please Enter The Contractor Name.
+                          </div>
+                          <br>
+                          <label>COMPANY NAME :</label>
+                          <div class="form-group">
+                              <input type="text" formControlName="txtCompany_name_contr"  name="txtCompany_name_contr" class="form-control" placeholder="Company Name *" value="" />
+                          </div>
+                          <div class="alert alert-danger" *ngIf="addForm.get('txtCompany_name_contr').hasError('required') && addForm.get('txtCompany_name_contr').touched">
+                            Please Enter Contractor Company Name.
+                          </div>
+                          <br>
+                          <label>CONTACT NUMBER :</label>
+                          <div class="form-group">
+                              <input type="email" formControlName="txtcontact_number_contr" name="txtcontact_number_contr" class="form-control" placeholder="Email *" value="" />
+                          </div>
+                          <div class="alert alert-danger" *ngIf="addForm.get('txtcontact_number_contr').hasError('required') && addForm.get('txtcontact_number_contr').touched">
+                            Please Enter The Contact Number.
+                          </div>
+                          <br>
+                         
+                          
+                  
+                          <label>EMAIL :</label>
+                        <div class="form-group">
+                          <input type="text" formControlName="txtemail_contr" name="txtemail_contr" class="form-control"  placeholder="Enter GST Number *" value="" />
+                      </div>
+                      <div class="alert alert-danger" *ngIf="addForm.get('txtemail_contr').hasError('required') && addForm.get('txtemail_contr').touched">
+                        Please Enter Email.
+                      </div>
+                      <br>
+                      <label>GST NUMBER :</label>
+                          <div class="form-group">
+                              <input type="text" formControlName="txtGST_contr" name="txtGST_contr" class="form-control" placeholder="Enter Contact Number *" value="" />
+                          </div>
+                          <div class="alert alert-danger" *ngIf="addForm.get('txtGST_contr').hasError('required') && addForm.get('txtGST_contr').touched">
+                            Please Enter GST Number.
+                          </div>
+                          <br>
+                        </div>
+                        <hr>
+                        <div class="col-md-6">
+                          <label>ADDRESS :</label>
+                            <div class="form-group">
+                              <input type="text" formControlName="txtaddress_contr" name="txtaddress_contr" class="form-control" placeholder="Enter Address *" value="" />
+                          </div>
+                          <div class="alert alert-danger" *ngIf="addForm.get('txtaddress_contr').hasError('required') && addForm.get('txtaddress_contr').touched">
+                            Please Enter The Address.
+                          </div>
+                          <br>
+                          <label>CITY :</label>
+                          <div class="form-group">
+                              <input type="text" formControlName="txtCity_contr" name="txtCity_contr" class="form-control" placeholder="Enter City *" value="" />
+                          </div>
+                          <div class="alert alert-danger" *ngIf="addForm.get('txtCity_contr').hasError('required') && addForm.get('txtCity_contr').touched">
+                            Please Enter The City.
+                          </div>
+                          <br>
+                          <label>STATE :</label>
+                          <div class="form-group">
+                            <input type="text" formControlName="txtState_contr" name="txtState_contr" class="form-control" placeholder="Enter State *" value="" />
+                        </div>
+                        <div class="alert alert-danger" *ngIf="addForm.get('txtState_contr').hasError('required') && addForm.get('txtState_contr').touched">
+                          Please Enter The State.
+                        </div>
+                        <br>
+                        <label>COUNTRY:</label>
+                        <div class="form-group">
+                          <input type="text" formControlName="txtCountry_contr" name="txtCountry_contr" class="form-control" placeholder="Enter Country *" value="" />
+                      </div>
+                      <div class="alert alert-danger" *ngIf="addForm.get('txtCountry_contr').hasError('required') && addForm.get('txtCountry_contr').touched">
+                        Please Enter The Country.
+                      </div>
+                      <br>
+                      <label>POSTCODE :</label>
+                      <div class="form-group">
+                        <input type="text" formControlName="txtPostcode_contr" name="txtPostcode_contr" class="form-control" placeholder="Enter Postcode *" value="" />
+                    </div>
+                    <div class="alert alert-danger" *ngIf="addForm.get('txtPostcode_contr').hasError('required') && addForm.get('txtPostcode_contr').touched">
+                      Please Enter The Postcode.
+                    </div>
+                    <br>
+                          <button type="submit" class="btn btn-success">Submit</button> 
+                  </div>
+                        </form>
+                 
+                      
+                    
+                  </div>
+              </div>
+              
+               
+              </div>
+          </div>
+   </div>

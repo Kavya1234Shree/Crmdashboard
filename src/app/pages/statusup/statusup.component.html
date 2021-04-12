@@ -1,0 +1,104 @@
+<button class="btn btn-info" style="margin-top:20px; margin-left: 1000px;margin-bottom: 10px;" [routerLink]="['/contract-list']" > List Contract</button><br>
+<div class="container"
+fxLayout
+fxLayout.xs="column"
+fxLayoutAlign="center"
+fxLayoutGap="10px"
+fxLayoutGap.xs="0" style="background-color: white;">
+
+<div class="container">
+       
+<table id="customers">
+  <col width="130">
+<thead>
+ <tr>
+   <th>SL.NO</th>
+   <th>Contract</th>
+   <th>Contract Products</th>
+   <th>Contract Remarks</th>
+   <th>Expexted O/p</th>
+   <th>Actual O/p</th> 
+   <th>Full Name</th>
+   <th>Company</th>
+   <th>Contract</th>
+   
+    <!-- <th>Action</th>  -->
+   
+</thead>
+    <tr *ngFor="let driver of supplier | paginate: { id:'listing_pagination',itemsPerPage: 15,currentPage: page,totalItems: totalRec } |filter:term; let i = index;">
+      <td >{{(page-1)*15+i+1}}</td>
+      <td >{{driver.sv_gst_no}}</td>
+      <td >{{driver.sv_name}}</td>
+      <td >{{driver.sv_organisation}}</td>
+      <td >{{driver.sv_address}}</td>
+      <td >{{driver.sv_city}}</td>
+      <td >{{driver.sv_state}}</td>
+      <td >{{driver.sv_country}}</td>
+      <td >{{driver.sv_phone}}</td>
+      
+      
+     
+      <!-- <td>{{driver.bank_name}}</td>
+      <td>{{driver.customer_name}}</td>
+      <td *ngIf="isAdmin">{{driver.customer_phone}}</td>
+      <td>{{driver.comments}}</td> -->
+       <!-- <td>
+        <button class="btn " style="background-color:rgb(137, 137, 241); color:white;" (click)="openModal(driver.sv_id)">EDIT</button>
+     </td>  -->
+     </tr>
+  </table>
+   <div>
+    <pagination-controls  id="listing_pagination" maxSize="5" directionLinks="true" (pageChange)="page = $event"></pagination-controls>
+  </div> 
+  </div>
+  </div>
+  <br>
+  <div class="container"
+fxLayout
+fxLayout.xs="column"
+fxLayoutAlign="center"
+fxLayoutGap="10px"
+fxLayoutGap.xs="0" style="background-color: white;">
+
+<div class="container">
+       
+<table id="customers">
+  <col width="130">
+<thead>
+ <tr>
+   <th>SL.NO</th>
+   <th>Date</th>
+   <th>Contract Remarks</th>
+   <th>Product type</th>
+   <th >Contract Quality</th>
+   <th>Actual O/p</th> 
+   <th>Contract status</th>
+   
+    <!-- <th>Action</th>  -->
+   
+</thead>
+    <tr *ngFor="let driver of supplier | paginate: { id:'listing_pagination',itemsPerPage: 15,currentPage: page,totalItems: totalRec } |filter:term; let i = index;">
+      <td >{{(page-1)*15+i+1}}</td>
+      <td >{{driver.sv_gst_no}}</td>
+      <td >{{driver.sv_name}}</td>
+      <td >{{driver.sv_organisation}}</td>
+      <td >{{driver.sv_address}}</td>
+      <td >{{driver.sv_city}}</td>
+      <td >{{driver.sv_state}}</td>
+      
+      
+     
+      <!-- <td>{{driver.bank_name}}</td>
+      <td>{{driver.customer_name}}</td>
+      <td *ngIf="isAdmin">{{driver.customer_phone}}</td>
+      <td>{{driver.comments}}</td> -->
+       <!-- <td>
+        <button class="btn " style="background-color:rgb(137, 137, 241); color:white;" (click)="openModal(driver.sv_id)">EDIT</button>
+     </td>  -->
+     </tr>
+  </table>
+   <div>
+    <pagination-controls  id="listing_pagination" maxSize="5" directionLinks="true" (pageChange)="page = $event"></pagination-controls>
+  </div> 
+  </div>
+  </div>

@@ -1,0 +1,131 @@
+<div class="container register">
+    <div class="row">
+        <div class="col-md-3 register-left">
+            <!-- <img src="https://image.ibb.co/n7oTvU/logo_white.png" alt=""/> -->
+            <h3>Update Supplier</h3>
+            <p></p>
+            <button class="btn btn-info" (click)="closeModal()">Go Back</button>
+        </div>
+        <div class="col-md-9 register-right">
+           
+            <div class="tab-content" id="myTabContent">
+                <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                    <h3 class="register-heading">Update Supplier Details</h3>
+                    
+                      <form [formGroup]="addForm" (ngSubmit)="onSubmit()"  novalidate class="row register-form" >
+                        <div class="col-md-6"> 
+                          <label>FULL NAME :</label>
+                            <div class="form-group">
+                                <input type="text" formControlName="txtfull_name"  class="form-control" [(ngModel)]="txtfull_name" name="txtfull_name"  placeholder="Full Name *"  />
+                            </div>
+                            <div class="alert alert-danger" *ngIf="addForm.get('txtfull_name').hasError('required') && addForm.get('txtfull_name').touched">
+                              Please Enter The Full Name.
+                            </div>
+                            <br>
+                            <label>COMPANY NAME :</label>
+                            <div class="form-group">
+                                <input type="text" formControlName="txtCompany_name"  name="txtCompany_name" [(ngModel)]="txtCompany_name" class="form-control" placeholder="Company Name *" value="" />
+                            </div>
+                            <div class="alert alert-danger" *ngIf="addForm.get('txtCompany_name').hasError('required') && addForm.get('txtCompany_name').touched">
+                              Please Enter Company Name.
+                            </div>
+                            <br>
+                            <label>EMAIL :</label>
+                            <div class="form-group">
+                                <input type="email" formControlName="txtemail" name="txtemail" [(ngModel)]="txtemail" class="form-control" placeholder="Email *" value="" />
+                            </div>
+                            <div class="alert alert-danger" *ngIf="addForm.get('txtemail').hasError('required') && addForm.get('txtemail').touched">
+                              Please Enter The Email.
+                            </div>
+                            <br>
+                           
+                            
+                    
+                            <label>GST NUMBER :</label>
+                          <div class="form-group">
+                            <input type="text" formControlName="txtGST" name="txtGST" [(ngModel)]="txtGST" class="form-control"  placeholder="Enter GST Number *" value="" />
+                        </div>
+                        <div class="alert alert-danger" *ngIf="addForm.get('txtGST').hasError('required') && addForm.get('txtGST').touched">
+                          Please Enter GST Number.
+                        </div>
+                        <br>
+                        <label>CONTACT NUMBER :</label>
+                            <div class="form-group">
+                                <input type="text" formControlName="txtcontact_number" name="txtcontact_number" [(ngModel)]="txtcontact_number" class="form-control" placeholder="Enter Contact Number *" value="" />
+                            </div>
+                            <div class="alert alert-danger" *ngIf="addForm.get('txtcontact_number').hasError('required') && addForm.get('txtcontact_number').touched">
+                              Please Enter Contact Number.
+                            </div>
+                            <br>
+                          </div>
+                          <div class="col-md-6">
+                            <label>FAX/OFFICE NUMBER :</label>
+                            <div class="form-group">
+                                <input type="text" formControlName="txtFaxOffice_number" name="txtFaxOffice_number" [(ngModel)]="txtFaxOffice_number" class="form-control" placeholder="Fax/Office Number" value="" />
+                            </div>
+                            <div class="alert alert-danger" *ngIf="addForm.get('txtFaxOffice_number').hasError('required') && addForm.get('txtFaxOffice_number').touched">
+                              Please Enter Fax/Office Number.
+                            </div>
+                            <br>
+                          
+                            <label>ADDRESS :</label>
+                              <div class="form-group">
+                                <input type="text" formControlName="txtaddress" name="txtaddress" [(ngModel)]="txtaddress" class="form-control" placeholder="Enter Address *" value="" />
+                            </div>
+                            <div class="alert alert-danger" *ngIf="addForm.get('txtaddress').hasError('required') && addForm.get('txtaddress').touched">
+                              Please Enter The Address.
+                            </div>
+                            <br>
+                            <label>CITY :</label>
+                            <div class="form-group">
+                                <input type="text" formControlName="txtCity" name="txtCity" [(ngModel)]="txtCity" class="form-control" placeholder="Enter City *" value="" />
+                            </div>
+                            <div class="alert alert-danger" *ngIf="addForm.get('txtCity').hasError('required') && addForm.get('txtCity').touched">
+                              Please Enter The City.
+                            </div>
+                            <br>
+                            <label>STATE :</label>
+                            <div class="form-group">
+                              <input type="text" formControlName="txtState" name="txtState" [(ngModel)]="txtState" class="form-control" placeholder="Enter State *" value="" />
+                          </div>
+                          <div class="alert alert-danger" *ngIf="addForm.get('txtState').hasError('required') && addForm.get('txtState').touched">
+                            Please Enter The State.
+                          </div>
+                          <br>
+                          <label>COUNTRY:</label>
+                          <div class="form-group">
+                            <input type="text" formControlName="txtCountry" name="txtCountry" [(ngModel)]="txtCountry" class="form-control" placeholder="Enter Country *" value="" />
+                        </div>
+                        <div class="alert alert-danger" *ngIf="addForm.get('txtCountry').hasError('required') && addForm.get('txtCountry').touched">
+                          Please Enter The Country.
+                        </div>
+                        <br>
+                        <label>POSTCODE :</label>
+                        <div class="form-group">
+                          <input type="text" formControlName="txtPostcode" name="txtPostcode" [(ngModel)]="txtPostcode" class="form-control" placeholder="Enter Postcode *" value="" />
+                      </div>
+                      <div class="alert alert-danger" *ngIf="addForm.get('txtPostcode').hasError('required') && addForm.get('txtPostcode').touched">
+                        Please Enter The Postcode.
+                      </div>
+                      
+                      <label>SUPPLIER ID :</label>
+                            <div class="form-group">
+                                <input type="text" formControlName="supplier_id"  class="form-control" [(ngModel)]="supplier_id" name="supplier_id"  placeholder="Full Name *"  />
+                            </div>
+                            <div class="alert alert-danger" *ngIf="addForm.get('supplier_id').hasError('required') && addForm.get('supplier_id').touched">
+                              Please Enter The Supplier Id.
+                            </div>
+                            <br>
+                            <button type="submit" class="btn btn-success">Update</button> 
+                    </div>
+                          </form>
+                   
+                        
+                      
+                    </div>
+                </div>
+                
+                 
+                </div>
+            </div>
+     </div>
